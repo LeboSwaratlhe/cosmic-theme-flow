@@ -25,13 +25,45 @@ const Index = () => {
   // Data Science Projects Data
   const projects = [
     {
-      title: "Predictive Analytics Dashboard",
-      description: "Interactive dashboard for exploring predictive models with Streamlit and Scikit-learn.",
-      technologies: ["Python", "Streamlit", "Scikit-learn", "Pandas"],
-      link: "#",
-      github: "#"
+      title: "Credit Risk Modeling",
+      role: "Data Scientist and Project Manager",
+      description: "Built a Credit Risk Model to predict the likelihood of a borrower defaulting on a loan.",
+      technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Logistic Regression", "Decision Trees", "Random Forest"],
+      github: "https://github.com/LeboSwaratlhe/Credit-risk-modeling-",
+      deployedApp: null
     },
-    // Add more projects as needed
+    {
+      title: "News Article Classification",
+      role: "Team Lead and Data Scientist",
+      description: "Built a machine learning-based news classification system to categorize articles for a news outlet.",
+      technologies: ["NLP", "SVM", "Naive Bayes", "Python", "NLTK", "Scikit-learn", "TensorFlow", "MLFlow"],
+      github: "https://github.com/LeboSwaratlhe/Group_5_Classification_Project",
+      deployedApp: null
+    },
+    {
+      title: "Predicting CO2 Emissions from the Agri-food Sector",
+      role: "Data Analyst",
+      description: "Built predictive models to estimate CO₂ emissions from agricultural activities and pinpoint major emission sources.",
+      technologies: ["Regression Analysis", "Feature Engineering", "Python", "Scikit-learn", "Pandas"],
+      github: "https://github.com/LeboSwaratlhe/RegressionExplorers24Team6",
+      deployedApp: null
+    },
+    {
+      title: "Anime Recommender System",
+      role: "Team Lead and Machine Learning Engineer",
+      description: "Built a collaborative and content-based recommender system for anime titles, predicting user ratings based on historical preferences.",
+      technologies: ["Collaborative Filtering", "Content-Based Filtering", "Python", "Scikit-learn", "Pandas", "Streamlit"],
+      github: "https://github.com/LeboSwaratlhe/Anime-Recommender-System-Project-2025",
+      deployedApp: "https://group2-2407ftds.streamlit.app/"
+    },
+    {
+      title: "Bank Customer Churn Predictive Project",
+      role: "Data Scientist",
+      description: "This project develops a predictive model to identify bank customers at risk of churning (discontinuing services).",
+      technologies: ["Streamlit", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Plotly", "Seaborn", "Matplotlib"],
+      github: "https://github.com/LeboSwaratlhe/Bank-Customer-Churn-Prediction",
+      deployedApp: "https://leboswaratlhe-bank-customer--bankcustomerchurnprediction-sw8vcj.streamlit.app/"
+    }
   ];
 
   // Technical Skills Data
@@ -158,23 +190,51 @@ const Index = () => {
       <section id="projects" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((project) => (
-              <div key={project} className="group bg-white dark:bg-gray-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-800">
-                <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-500 relative overflow-hidden">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <div key={index} className="group bg-white dark:bg-gray-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-800">
+                <div className="h-32 bg-gradient-to-br from-blue-400 to-purple-500 relative overflow-hidden">
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
-                  <div className="absolute bottom-4 right-4">
-                    <ExternalLink className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-semibold text-xl mb-2">Project {project}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    A beautiful web application built with modern technologies and best practices.
+                  <h3 className="font-semibold text-xl mb-2">{project.title}</h3>
+                  <p className="text-blue-600 dark:text-blue-400 font-medium text-sm mb-2">{project.role}</p>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                    {project.description}
                   </p>
-                  <div className="flex gap-2">
-                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm">React</span>
-                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm">TypeScript</span>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                      <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-xs">
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-xs">
+                        +{project.technologies.length - 4} more
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-3">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
+                    >
+                      <Github className="h-4 w-4" />
+                      <span>GitHub</span>
+                    </a>
+                    {project.deployedApp && (
+                      <a 
+                        href={project.deployedApp} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        <span>Live App</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
