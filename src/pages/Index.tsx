@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, ExternalLink, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
@@ -109,6 +109,18 @@ const Index = () => {
           <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
           <div className="space-y-8">
             <div className="text-center mb-12">
+              <div className="flex justify-center mb-6">
+                <Avatar className="w-32 h-32 border-4 border-white dark:border-gray-800 shadow-lg">
+                  <AvatarImage 
+                    src="/lovable-uploads/6e482abf-966e-4684-9573-cad249516c48.png" 
+                    alt="Lebogang's profile photo"
+                    className="object-cover"
+                  />
+                  <AvatarFallback className="text-2xl font-semibold bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                    LS
+                  </AvatarFallback>
+                </Avatar>
+              </div>
               <h3 className="text-2xl font-semibold mb-4">Hi, I am Lebogang 🌟</h3>
               <p className="text-xl text-blue-600 dark:text-blue-400 font-medium">Data Scientist | Aspiring AI and ML Engineer</p>
             </div>
