@@ -86,15 +86,25 @@ export default {
 						height: '0'
 					}
 				},
+				// Enhanced fade-in animation
 				'fade-in': {
-					'0%': {
-						opacity: '0',
-						transform: 'translateY(20px)'
-					},
-					'100%': {
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				// New animations for data science focus
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
+				},
+				'wave': {
+					'0%': { transform: 'rotate(0deg)' },
+					'10%': { transform: 'rotate(14deg)' },
+					'20%': { transform: 'rotate(-8deg)' },
+					'30%': { transform: 'rotate(14deg)' },
+					'40%': { transform: 'rotate(-4deg)' },
+					'50%': { transform: 'rotate(10deg)' },
+					'60%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(0deg)' }
 				},
 				'slide-in': {
 					'0%': {
@@ -110,7 +120,12 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'wave': 'wave 2s ease-in-out infinite',
+				// Section entrance animations
+				'section-enter': 'fade-in 0.6s ease-out forwards',
+				'card-enter': 'fade-in 0.4s ease-out 0.2s forwards',
 				'slide-in': 'slide-in 0.5s ease-out'
 			}
 		}

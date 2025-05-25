@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, ExternalLink, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,7 +6,6 @@ const Index = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Check system preference
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDark(prefersDark);
     document.documentElement.classList.toggle('dark', prefersDark);
@@ -23,24 +21,37 @@ const Index = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Data Science Projects Data
+  const projects = [
+    {
+      title: "Predictive Analytics Dashboard",
+      description: "Interactive dashboard for exploring predictive models with Streamlit and Scikit-learn.",
+      technologies: ["Python", "Streamlit", "Scikit-learn", "Pandas"],
+      link: "#",
+      github: "#"
+    },
+    // Add more projects as needed
+  ];
+
+  // Technical Skills Data
+  const skills = [
+    "Python", "R", "SQL", "Pandas", "NumPy", 
+    "Scikit-learn", "TensorFlow", "PyTorch"
+  ];
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-      {/* Header */}
+      {/* Header Navigation */}
       <header className="fixed top-0 w-full bg-white/80 dark:bg-gray-950/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="font-semibold text-xl">John Doe</div>
+          <div className="font-semibold text-xl">Data Science Portfolio</div>
           <nav className="hidden md:flex space-x-8">
             <button onClick={() => scrollToSection('about')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</button>
             <button onClick={() => scrollToSection('projects')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</button>
-            <button onClick={() => scrollToSection('blog')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</button>
+            <button onClick={() => scrollToSection('skills')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</button>
             <button onClick={() => scrollToSection('contact')} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</button>
           </nav>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={toggleTheme}
-            className="border-gray-300 dark:border-gray-700"
-          >
+          <Button variant="outline" size="icon" onClick={toggleTheme} className="border-gray-300 dark:border-gray-700">
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
         </div>
@@ -50,16 +61,10 @@ const Index = () => {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-            Creative Developer
+            Data Science Portfolio
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            I design and build beautiful digital experiences that connect with people.
-          </p>
-          <Button 
-            onClick={() => scrollToSection('projects')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
-          >
-            View My Work
+          <Button onClick={() => scrollToSection('projects')} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+            View My Projects
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
@@ -128,30 +133,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Blog Section */}
-      <section id="blog" className="py-20 px-6 bg-gray-50 dark:bg-gray-900/50">
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-6 bg-gray-50 dark:bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">Latest Blog Posts</h2>
-          <div className="space-y-8">
-            {[1, 2, 3].map((post) => (
-              <article key={post} className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-800">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer">
-                    Building Modern Web Applications with React and TypeScript
-                  </h3>
-                  <span className="text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap ml-4">
-                    Dec {post}, 2024
-                  </span>
-                </div>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Learn how to build scalable and maintainable web applications using React and TypeScript. 
-                  This guide covers best practices and modern development patterns.
-                </p>
-                <div className="flex items-center text-blue-600 dark:text-blue-400 hover:underline cursor-pointer">
-                  Read more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </div>
-              </article>
+          <h2 className="text-4xl font-bold mb-12 text-center">Technical Skills</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {skills.map((skill, index) => (
+              <span key={index} className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm">
+                {skill}
+              </span>
             ))}
           </div>
         </div>
@@ -191,7 +181,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-400">
-          <p>&copy; 2024 John Doe. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Your Name</p>
         </div>
       </footer>
     </div>
