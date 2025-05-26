@@ -34,7 +34,8 @@ const Index = () => {
       description: "Built a Credit Risk Model to predict the likelihood of a borrower defaulting on a loan.",
       technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Logistic Regression", "Decision Trees", "Random Forest"],
       github: "https://github.com/LeboSwaratlhe/Credit-risk-modeling-",
-      deployedApp: null
+      deployedApp: null,
+      image: "/lovable-uploads/4794bbe9-10c3-41be-87ec-10ef5220c359.png"
     },
     {
       title: "News Article Classification",
@@ -42,7 +43,8 @@ const Index = () => {
       description: "Built a machine learning-based news classification system to categorize articles for a news outlet.",
       technologies: ["NLP", "SVM", "Naive Bayes", "Python", "NLTK", "Scikit-learn", "TensorFlow", "MLFlow"],
       github: "https://github.com/LeboSwaratlhe/Group_5_Classification_Project",
-      deployedApp: null
+      deployedApp: null,
+      image: "/lovable-uploads/d8bd42b7-a627-4c21-9f91-94b3474366bc.png"
     },
     {
       title: "Predicting CO2 Emissions from the Agri-food Sector",
@@ -50,7 +52,8 @@ const Index = () => {
       description: "Built predictive models to estimate CO₂ emissions from agricultural activities and pinpoint major emission sources.",
       technologies: ["Regression Analysis", "Feature Engineering", "Python", "Scikit-learn", "Pandas"],
       github: "https://github.com/LeboSwaratlhe/RegressionExplorers24Team6",
-      deployedApp: null
+      deployedApp: null,
+      image: "/lovable-uploads/6fe629d6-c039-4937-b2b3-772e6b6e5aa4.png"
     },
     {
       title: "Anime Recommender System",
@@ -58,7 +61,8 @@ const Index = () => {
       description: "Built a collaborative and content-based recommender system for anime titles, predicting user ratings based on historical preferences.",
       technologies: ["Collaborative Filtering", "Content-Based Filtering", "Python", "Scikit-learn", "Pandas", "Streamlit"],
       github: "https://github.com/LeboSwaratlhe/Anime-Recommender-System-Project-2025",
-      deployedApp: "https://group2-2407ftds.streamlit.app/"
+      deployedApp: "https://group2-2407ftds.streamlit.app/",
+      image: "/lovable-uploads/75a60d8e-df15-4547-8b97-01779370d3c3.png"
     },
     {
       title: "Bank Customer Churn Predictive Project",
@@ -66,7 +70,8 @@ const Index = () => {
       description: "This project develops a predictive model to identify bank customers at risk of churning (discontinuing services).",
       technologies: ["Streamlit", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Plotly", "Seaborn", "Matplotlib"],
       github: "https://github.com/LeboSwaratlhe/Bank-Customer-Churn-Prediction",
-      deployedApp: "https://leboswaratlhe-bank-customer--bankcustomerchurnprediction-sw8vcj.streamlit.app/"
+      deployedApp: "https://leboswaratlhe-bank-customer--bankcustomerchurnprediction-sw8vcj.streamlit.app/",
+      image: "/lovable-uploads/194dfb6e-9d59-41c9-a724-b8b97e326a0d.png"
     }
   ];
 
@@ -249,7 +254,12 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <div key={index} className="group bg-white dark:bg-gray-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-800">
-                <div className="h-32 bg-gradient-to-br from-blue-400 to-purple-500 relative overflow-hidden">
+                <div className="h-48 relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                 </div>
                 <div className="p-6">
@@ -332,15 +342,15 @@ const Index = () => {
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
               <div className="space-y-4">
-                <a href="mailto:hello@johndoe.com" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href="mailto:lebogangswaratlhe@gmail.com" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <Mail className="h-6 w-6" />
-                  <span>hello@johndoe.com</span>
+                  <span>lebogangswaratlhe@gmail.com</span>
                 </a>
-                <a href="https://github.com" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href="https://github.com/LeboSwaratlhe" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <Github className="h-6 w-6" />
                   <span>GitHub</span>
                 </a>
-                <a href="https://linkedin.com" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href="https://www.linkedin.com/in/lebogang-swaratlhe-b67415197/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <Linkedin className="h-6 w-6" />
                   <span>LinkedIn</span>
                 </a>
