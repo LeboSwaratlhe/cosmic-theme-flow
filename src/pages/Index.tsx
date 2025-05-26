@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, ExternalLink, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -73,8 +72,42 @@ const Index = () => {
 
   // Technical Skills Data
   const skills = [
-    "Python", "R", "SQL", "Pandas", "NumPy", 
-    "Scikit-learn", "TensorFlow", "PyTorch"
+    {
+      category: "🤖 Machine Learning",
+      description: "Skilled in developing predictive models and classification systems."
+    },
+    {
+      category: "📊 Data Analysis", 
+      description: "Expertise in regression analysis, feature engineering, and statistical modeling."
+    },
+    {
+      category: "📝 Natural Language Processing (NLP)",
+      description: "Proficient in text processing and classification tasks."
+    },
+    {
+      category: "🐍 Technical Proficiency",
+      description: "Scikit-learn, Pandas, NLTK, Computer Vision."
+    },
+    {
+      category: "🧑‍💻 Programming Languages",
+      description: "Python, R, SQL."
+    },
+    {
+      category: "🧠 Deep Learning",
+      description: "Proficient in designing and training neural networks using TensorFlow and Keras."
+    },
+    {
+      category: "🛠️ Collaboration and Tools",
+      description: "Proficient in Git and Jupyter Notebooks for collaborative development."
+    },
+    {
+      category: "⚙️ Web Development",
+      description: "Streamlit."
+    },
+    {
+      category: "🌟 Soft Skills",
+      description: "Team Leadership, Project Management, Communication, Adaptability, Storytelling."
+    }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -268,13 +301,18 @@ const Index = () => {
 
       {/* Skills Section */}
       <section id="skills" className="py-20 px-6 bg-gray-50 dark:bg-gray-900/50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Technical Skills</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((skill, index) => (
-              <span key={index} className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm">
-                {skill}
-              </span>
+              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  {skill.category}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  {skill.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
