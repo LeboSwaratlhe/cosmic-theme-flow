@@ -1,7 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, ExternalLink, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
@@ -71,6 +76,12 @@ const Index = () => {
     "Python", "R", "SQL", "Pandas", "NumPy", 
     "Scikit-learn", "TensorFlow", "PyTorch"
   ];
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted');
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -271,32 +282,78 @@ const Index = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Let's Work Together</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold mb-8 text-center">Let's Work Together</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto text-center">
             I'm always interested in new opportunities and exciting projects. 
             Let's discuss how we can bring your ideas to life.
           </p>
-          <div className="flex justify-center space-x-6 mb-12">
-            <a href="mailto:hello@johndoe.com" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <Mail className="h-6 w-6" />
-              <span>hello@johndoe.com</span>
-            </a>
-            <a href="https://github.com" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <Github className="h-6 w-6" />
-              <span>GitHub</span>
-            </a>
-            <a href="https://linkedin.com" className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <Linkedin className="h-6 w-6" />
-              <span>LinkedIn</span>
-            </a>
+          
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
+            {/* Contact Info */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
+              <div className="space-y-4">
+                <a href="mailto:hello@johndoe.com" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Mail className="h-6 w-6" />
+                  <span>hello@johndoe.com</span>
+                </a>
+                <a href="https://github.com" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Github className="h-6 w-6" />
+                  <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com" className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Linkedin className="h-6 w-6" />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <Card className="border border-gray-200 dark:border-gray-800">
+              <CardHeader>
+                <CardTitle className="text-center">Send a Message</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName">First Name</Label>
+                      <Input id="firstName" placeholder="Your first name" required />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName">Last Name</Label>
+                      <Input id="lastName" placeholder="Your last name" required />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="your.email@example.com" required />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="projectType">Project Type</Label>
+                    <Input id="projectType" placeholder="e.g., Data Analysis, Machine Learning, etc." required />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea 
+                      id="message" 
+                      placeholder="Tell me about your project..." 
+                      className="min-h-[120px]" 
+                      required 
+                    />
+                  </div>
+                  
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
-          <Button 
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
-            onClick={() => window.open('mailto:hello@johndoe.com')}
-          >
-            Get In Touch
-          </Button>
         </div>
       </section>
 
