@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun, ExternalLink, Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,12 +9,12 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const Index = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true); // Set to true for dark mode by default
 
   useEffect(() => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(prefersDark);
-    document.documentElement.classList.toggle('dark', prefersDark);
+    // Set dark mode by default instead of checking user preference
+    setIsDark(true);
+    document.documentElement.classList.add('dark');
   }, []);
 
   const toggleTheme = () => {
@@ -408,7 +409,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto text-center text-gray-600 dark:text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Lebogang</p>
+          <p>&copy; {new Date().getFullYear()} Lebogang Swaratlhe</p>
         </div>
       </footer>
     </div>
