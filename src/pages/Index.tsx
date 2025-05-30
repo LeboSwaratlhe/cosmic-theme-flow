@@ -256,15 +256,29 @@ const Index = () => {
             {projects.map((project, index) => (
               <div key={index} className="group bg-white dark:bg-gray-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-800">
                 <div className="h-48 relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block w-full h-full"
+                  >
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                  </a>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-semibold text-xl mb-2">{project.title}</h3>
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <h3 className="font-semibold text-xl mb-2">{project.title}</h3>
+                  </a>
                   <p className="text-blue-600 dark:text-blue-400 font-medium text-sm mb-2">{project.role}</p>
                   <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
                     {project.description}
@@ -286,17 +300,17 @@ const Index = () => {
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
+                      className="flex items-center gap-2 px-3 py-2 bg-gray-900 dark:bg-gray-700 text-white hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors text-sm rounded-md"
                     >
                       <Github className="h-4 w-4" />
-                      <span>GitHub</span>
+                      <span>View Code</span>
                     </a>
                     {project.deployedApp && (
                       <a 
                         href={project.deployedApp} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
+                        className="flex items-center gap-2 px-3 py-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm rounded-md"
                       >
                         <ExternalLink className="h-4 w-4" />
                         <span>Live App</span>
