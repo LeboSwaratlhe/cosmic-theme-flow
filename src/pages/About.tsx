@@ -2,6 +2,7 @@
 import React from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { SidebarTrigger } from '@/components/ui/sidebar';
+import { Database, Brain, BarChart3, Code, Globe, Users } from 'lucide-react';
 
 const About = () => {
   return (
@@ -36,6 +37,104 @@ const About = () => {
                 data into actionable insights that drive decision-making and innovation. I am eager to continue growing in the 
                 field of data science and statistics, contributing to impactful projects, and making a meaningful difference through data.
               </p>
+            </div>
+          </div>
+
+          {/* Skills Section */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold mb-8 text-center text-purple-300">Technical Skills</h2>
+            <div className="grid gap-8">
+              
+              {/* Data Science & ML */}
+              <div className="bg-slate-800/50 backdrop-blur p-6 rounded-xl border border-purple-800/50">
+                <div className="flex items-center mb-4">
+                  <Brain className="h-6 w-6 text-purple-400 mr-3" />
+                  <h3 className="font-semibold text-xl text-purple-300">📊 Data Science & Machine Learning</h3>
+                </div>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p><strong>Supervised Learning:</strong> Regression (Linear, Logistic, Polynomial), Classification (SVM, Random Forest, XGBoost).</p>
+                  <p><strong>Unsupervised Learning:</strong> Clustering (K-Means, DBSCAN), Dimensionality Reduction (PCA, t-SNE).</p>
+                  <p><strong>Model Evaluation:</strong> Cross-validation, Hyperparameter Tuning (GridSearch, RandomSearch), Metrics (Accuracy, Precision, Recall, F1, ROC-AUC).</p>
+                  <p><strong>Feature Engineering:</strong> Handling missing data, outlier detection, encoding categorical variables.</p>
+                  <p><strong>Time Series Analysis:</strong> ARIMA, SARIMA.</p>
+                </div>
+              </div>
+
+              {/* NLP */}
+              <div className="bg-slate-800/50 backdrop-blur p-6 rounded-xl border border-purple-800/50">
+                <div className="flex items-center mb-4">
+                  <Globe className="h-6 w-6 text-blue-400 mr-3" />
+                  <h3 className="font-semibold text-xl text-blue-300">📜 Natural Language Processing (NLP)</h3>
+                </div>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p><strong>Text Processing:</strong> Tokenization, Stemming/Lemmatization, TF-IDF, Word Embeddings (Word2Vec).</p>
+                  <p><strong>Applications:</strong> Sentiment Analysis, Named Entity Recognition (NER), Text Summarization.</p>
+                  <p><strong>Deep Learning:</strong> Neural networks.</p>
+                </div>
+              </div>
+
+              {/* Programming */}
+              <div className="bg-slate-800/50 backdrop-blur p-6 rounded-xl border border-purple-800/50">
+                <div className="flex items-center mb-4">
+                  <Code className="h-6 w-6 text-cyan-400 mr-3" />
+                  <h3 className="font-semibold text-xl text-cyan-300">💻 Programming & Data Manipulation</h3>
+                </div>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p><strong>Python:</strong> NumPy, SciPy, Matplotlib, Seaborn, Plotly.</p>
+                  <p><strong>R:</strong> Tidyverse (dplyr, ggplot2).</p>
+                  <p><strong>SQL:</strong> Complex queries, Joins, Window Functions, Query Optimization.</p>
+                </div>
+              </div>
+
+              {/* Deployment & MLOps */}
+              <div className="bg-slate-800/50 backdrop-blur p-6 rounded-xl border border-purple-800/50">
+                <div className="flex items-center mb-4">
+                  <Database className="h-6 w-6 text-green-400 mr-3" />
+                  <h3 className="font-semibold text-xl text-green-300">🛠️ Deployment & MLOps</h3>
+                </div>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p><strong>Model Deployment:</strong> Flask/FastAPI, Streamlit.</p>
+                  <p><strong>MLOps:</strong> MLflow.</p>
+                </div>
+              </div>
+
+              {/* Data Visualization */}
+              <div className="bg-slate-800/50 backdrop-blur p-6 rounded-xl border border-purple-800/50">
+                <div className="flex items-center mb-4">
+                  <BarChart3 className="h-6 w-6 text-purple-400 mr-3" />
+                  <h3 className="font-semibold text-xl text-purple-300">📈 Data Visualization & Business Intelligence</h3>
+                </div>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p><strong>Dashboarding:</strong> Power BI.</p>
+                  <p><strong>Advanced Plotting:</strong> Interactive visualizations (Plotly, Bokeh).</p>
+                </div>
+              </div>
+
+              {/* Databases */}
+              <div className="bg-slate-800/50 backdrop-blur p-6 rounded-xl border border-purple-800/50">
+                <div className="flex items-center mb-4">
+                  <Database className="h-6 w-6 text-indigo-400 mr-3" />
+                  <h3 className="font-semibold text-xl text-indigo-300">🗃️ Databases & Data Engineering</h3>
+                </div>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p><strong>Relational DBs:</strong> PostgreSQL, MySQL.</p>
+                  <p><strong>NoSQL:</strong> MongoDB.</p>
+                </div>
+              </div>
+
+              {/* Soft Skills */}
+              <div className="bg-slate-800/50 backdrop-blur p-6 rounded-xl border border-purple-800/50">
+                <div className="flex items-center mb-4">
+                  <Users className="h-6 w-6 text-yellow-400 mr-3" />
+                  <h3 className="font-semibold text-xl text-yellow-300">🤝 Soft Skills & Collaboration</h3>
+                </div>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <p><strong>Problem-Solving:</strong> Breaking down complex problems.</p>
+                  <p><strong>Storytelling with Data:</strong> Presenting insights effectively.</p>
+                  <p><strong>Agile/Scrum:</strong> Experience in sprint-based development.</p>
+                  <p><strong>Team Leadership:</strong> Managing small projects or hackathons.</p>
+                </div>
+              </div>
             </div>
           </div>
           
